@@ -5,7 +5,8 @@
   "scripts": {
     "build": "vitamin build",
     "start": "vitamin start",
-    "serve": "vitamin serve"
+    "serve": "vitamin serve",
+    "test": "vitamin test"
   },
   "author": "Johan Girod <johan@evaneos.com>",
   "repository": {
@@ -14,7 +15,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^15.1.0",
+    "react": "^15.4.2",
     "vitaminjs": "file:../.."
   }
 }
