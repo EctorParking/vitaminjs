@@ -29,3 +29,4 @@ const safeReaddirSync = (dirPath) => {
 const externalModules = modulesPath => safeReaddirSync(modulesPath).filter(m => m !== '.bin');
 export const appModules = externalModules(appResolve('node_modules')).filter(m => m !== 'vitaminjs');
 export const vitaminModules = externalModules(vitaminResolve('node_modules'));
+export const fileRegex = '.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$';

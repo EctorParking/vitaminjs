@@ -8,7 +8,7 @@ import postcssBrowserReporter from 'postcss-browser-reporter';
 import postcssReporter from 'postcss-reporter';
 import postcssCssNano from 'cssnano';
 import { join } from 'path';
-import { vitaminResolve, appResolve } from '../utils';
+import { vitaminResolve, appResolve, fileRegex } from '../utils';
 import babelrc from '../babelrc';
 
 const VITAMIN_DIRECTORY = vitaminResolve();
@@ -68,7 +68,7 @@ export function config(options) {
                     'postcss-loader',
                 ],
             }, {
-                test: /\.(png|jpg|jpeg|gif|svg|ico|woff|woff2|eot|ttf)$/,
+                test: new RegExp(fileRegex),
                 loader: `url-loader?limit=10000&name=${join(options.filesPath, '[hash].[ext]')}`,
             }, {
                 test: /\.json$/,
