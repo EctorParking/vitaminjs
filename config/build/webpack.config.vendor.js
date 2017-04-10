@@ -38,7 +38,6 @@ export default function vendorConfig(options) {
             library: '__vitamin__vendor_dll',
         },
         // We don't want to bundle nodejs libraries (fs, path, etc...)
-        target: 'node',
         module: {
             // Disable handling of unknown requires
             unknownContextRegExp: /$^/,
