@@ -13,7 +13,7 @@ const blankLines = (times = 1) => (new Array(times))
     .join('');
 
 const LOGGERS = [
-    { method: 'success', level: 'log', style: str => chalk.green(`\n${chalk.inverse(' SUCESS ')} ${stripNewline(str)}`) },
+    { method: 'success', level: 'log', style: str => chalk.green(`\n${chalk.inverse(' SUCCESS ')} ${stripNewline(str)}`) },
     { method: 'error', level: 'error', style: str => chalk.red(`\n${chalk.inverse(' ERROR ')} ${stripNewline(str)}`) },
     { method: 'warning', level: 'warn', style: str => chalk.yellow(`\n${chalk.inverse(' WARNING ')} ${stripNewline(str)}`) },
     { method: 'info', level: 'info', style: chalk.blue },
