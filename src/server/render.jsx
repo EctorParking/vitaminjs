@@ -21,19 +21,33 @@ export const renderLayout = ({ appHTMLString, ...props }) =>
 
 // Return a promise that resolves to the HTML string
 export default (renderProps, store, mainEntry) => {
-    const css = [];
-    const insertCss = styles => css.push(styles._getCss());
-    return Resolver
-        .resolve(() => <App {...{ renderProps, store, mainEntry, insertCss }} />)
-        .then(({ Resolved, data }) => renderLayout({
-            appHTMLString: renderToString(
-                <div>
-                    <Helmet
-                        script={[{ innerHTML: `window.__REACT_RESOLVER_PAYLOAD__ = ${JSON.stringify(data)};` }]}
-                    />
-                    <Resolved />
-                </div>),
-            style: css.join(''),
-            head: Helmet.rewind(),
-        }));
+    const { pathname } = renderProps.router.location;
+    // if (renderProps.router.location.pathname === '/')
+    if (true) {
+        const css = [];
+        const insertCss = styles => css.push(styles._getCss());
+        return Resolver
+            .resolve(() => <App {...{ renderProps, store, mainEntry, insertCss }} />)
+            .then(({ Resolved, data }) => renderLayout({
+                appHTMLString: renderToString(
+                    <div>
+                        <Helmet
+                            script={[{ innerHTML: `window.__REACT_RESOLVER_PAYLOAD__ = ${JSON.stringify(data)};` }]}
+                        />
+                        <Resolved />
+                    </div>),
+                style: css.join(''),
+                head: Helmet.rewind(),
+            }));
+    } else {
+        const css = [];
+        const insertCss = styles => css.push(styles._getCss());
+        return Resolver
+            .resolve(() => <App {...{ renderProps, store, mainEntry, insertCss }} />)
+            .then(({ Resolved, data }) => renderLayout({
+                appHTMLString: '',
+                style: css.join(''),
+                head: Helmet.rewind(),
+            }));
+    }
 };
