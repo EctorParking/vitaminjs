@@ -6,6 +6,7 @@ import postcssImport from 'postcss-import';
 import postcssUrl from 'postcss-url';
 import postcssCssNext from 'postcss-cssnext';
 import postcssBrowserReporter from 'postcss-browser-reporter';
+import postcssIcssValues from 'postcss-icss-values';
 import postcssReporter from 'postcss-reporter';
 import { join } from 'path';
 import { vitaminResolve, appResolve } from '../utils';
@@ -115,6 +116,7 @@ export function config(options) {
                     context: __dirname,
                     postcss: [
                         postcssOmitImportTilde(),
+                        postcssIcssValues(),
                         postcssImport(),
                         postcssUrl(),
                         postcssCssNext({ browsers: options.client.targetBrowsers }),
